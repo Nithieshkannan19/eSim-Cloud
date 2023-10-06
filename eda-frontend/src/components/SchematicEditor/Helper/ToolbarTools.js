@@ -202,14 +202,14 @@ export function RotateACW() {
 }
 
 // PRINT PREVIEW OF SCHEMATIC
-export function PrintPreview() {
+export function PrintPreview({gridRef}) {
   // Matches actual printer paper size and avoids blank pages
   var scale = 0.8
   var headerSize = 50
   var footerSize = 50
 
   // Applies scale to page
-  var pageFormat = { x: 0, y: 0, width: 1169, height: 827 }
+  var pageFormat = { x: 0, y: 0, width: gridRef.current.scrollWidth, height: gridRef.current.scrollHeight }
   var pf = mxRectangle.fromRectangle(pageFormat || mxConstants.PAGE_FORMAT_A4_LANDSCAPE)
   pf.width = Math.round(pf.width * scale * graph.pageScale)
   pf.height = Math.round(pf.height * scale * graph.pageScale)

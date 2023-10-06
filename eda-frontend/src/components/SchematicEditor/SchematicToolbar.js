@@ -684,7 +684,7 @@ export default function SchematicToolbar ({
       // Print - Ctrl + P
       if (event.ctrlKey && event.keyCode === 80) {
         event.preventDefault()
-        PrintPreview()
+        PrintPreview({gridRef})
       }
       // Open dialog - Ctrl + O
       if (event.ctrlKey && event.keyCode === 79) {
@@ -834,7 +834,7 @@ export default function SchematicToolbar ({
           color="inherit"
           className={classes.tools}
           size="small"
-          onClick={PrintPreview}
+          onClick={()=>PrintPreview({gridRef})}
         >
           <PrintOutlinedIcon fontSize="small" />
         </IconButton>
